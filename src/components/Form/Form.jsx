@@ -1,45 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../Button';
 import styles from '../assets/css/Form.module.css';
 import Input from './Input';
-import Label from './Label';
+import Select from './Select';
 
-const Form = () => {
-  const [nome, setNome] = useState('');
-  const [orcamento, setOrcamento] = useState('');
-  const [categoria, setCategoria] = useState('');
-  function handleChange() {}
-  console.log(nome, orcamento, categoria);
+const Form = ({ options }) => {
+  const [form, setForm] = useState('');
+  const [categoria, setCategoria] = useState();
+
+  function handleOnChange({ target }) {
+    const { id, value } = target;
+    setForm({ ...form, [id]: value });
+  }
+  console.log(form);
 
   return (
     <form className={styles.form}>
-      <Label id={'nome'} texto="Nome do projeto:" />
       <Input
-        id="nome"
-        value={nome}
-        setValue={setNome}
+        texto={'Nome do projeto:'}
+        type={'text'}
+        name={'name'}
+        id="name"
+        value={form.nome}
+        handleOnChange={handleOnChange}
         placeholder={'Insira o nome do projeto'}
       />
 
-      <Label id={'oracamento'} texto="Orçamento do projeto:" />
       <Input
-        id="oracamento"
-        value={orcamento}
-        setValue={setOrcamento}
-        placeholder={'Insira o orçamento total'}
+        texto={'Orçamento do projeto:'}
+        type={'number'}
+        name={'budget'}
+        id="budget"
+        value={form.orcamento}
+        handleOnChange={handleOnChange}
+        placeholder={'Insira o orçamento do projeto'}
       />
 
-      <Label id={'categoria'} texto="Selecione a categoria:" />
-      <select
-        value={categoria}
-        id="categoria"
-        onChange={({ target }) => {
-          setCategoria(target.value);
-        }}
-      >
-        <option value="">Selecione uma opção</option>
-        <option value="Infra">Infra</option>
-      </select>
+      <Select
+        name={'categoria'}
+        texto="Selecione a categoria:"
+        options={options}
+        value={form}
+        handleOnChange={handleOnChange}
+      />
       <Button />
     </form>
   );
