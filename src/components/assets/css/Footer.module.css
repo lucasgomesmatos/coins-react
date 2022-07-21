@@ -1,0 +1,16 @@
+.footer {
+  background: #1c1c1c;
+  height: 5rem;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  p {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}

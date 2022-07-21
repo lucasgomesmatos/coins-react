@@ -1,0 +1,15 @@
+.novoProjeto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.novoProjeto h1 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.novoProjeto p {
+  margin: 1rem 0;
+}
