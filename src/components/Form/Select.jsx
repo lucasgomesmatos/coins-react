@@ -4,7 +4,12 @@ const Select = ({ name, texto, options, handleOnChange, value }) => {
   return (
     <>
       <label htmlFor={name}>{texto}</label>
-      <select name={name} id={name} value={value} onChange={handleOnChange}>
+      <select
+        name={name}
+        id={name}
+        value={value || ''}
+        onChange={handleOnChange}
+      >
         <option value="">Selecione uma opção</option>
         {options &&
           options.map(({ id, name }) => (
