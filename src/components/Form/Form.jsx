@@ -56,7 +56,7 @@ const Form = ({ options, handleSubmit, projectData }) => {
         value={project.category ? project.category.id : ''}
         handleOnChange={handleCategory}
       />
-      <Button />
+      <Button text={'cadastrar'} />
     </form>
   );
 };

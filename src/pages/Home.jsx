@@ -11,7 +11,7 @@ const Home = () => {
       </h1>
       <p>Comece a gerenciar os seus projetos agora mesmo!</p>
       <Link to={'/novoprojetos'}>
-        <Button />
+        <Button text={'Criar Novo Projeto'} />
       </Link>
       <img src={saving} alt="cofrinho" />
     </section>
